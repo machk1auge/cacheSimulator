@@ -2,11 +2,9 @@
 // Created by julian on 12.07.24.
 //
 #include <systemc.h>
-#include "cpu.hpp"
 #include "memory.h"
 #include "cache.h"
-#include "directMappedCache.h"
-#include "fourwayMappedCache.h"
+#include "request.h"
 
 // Global variables
 int directMapped = 1;
@@ -51,11 +49,11 @@ int sc_main(int argc, char *argv[])
     Cache *cache;
     if (directMapped)
     {
-        cache = new DirectMappedCache("cache_inst", cacheLines, cacheLineSize, cacheLatency);
+        //cache = new DirectMappedCache("cache_inst", cacheLines, cacheLineSize, cacheLatency);
     }
     else
     {
-        cache = new FourwayMappedCache("cache_inst", cacheLines, cacheLineSize, cacheLatency);
+        //cache = new FourwayMappedCache("cache_inst", cacheLines, cacheLineSize, cacheLatency);
     }
     cache->clkCACHEIn(clk);
 
